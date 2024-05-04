@@ -1,6 +1,6 @@
 fun main(){
     calcAmount(7854)
-calcLikes(21)
+calcLikes(111)
     music(15000, true)
 }
 
@@ -12,8 +12,9 @@ fun calcAmount(amount: Int) {
 }
 
 fun calcLikes(likes: Int) {
-val lastDigit = likes.toString().last().digitToInt()
-  var text = if (lastDigit != 1 || likes == 11) "людям" else "человеку"
+    val lastDigits = if (likes.toString().length > 2) likes.toString().substring(likes.toString().length-2) else likes.toString()
+    val lastDigit = lastDigits.last().digitToInt()
+  var text = if (lastDigit != 1 || lastDigits.toInt() == 11) "людям" else "человеку"
     println("Понравилось $likes $text")
 }
 
